@@ -1,0 +1,314 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    #googleAuthBtn, #uploadtweet {
+        width: 80px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #1c8de3;
+        color: white;
+        cursor: pointer;
+    }
+    #uploadtweet{
+      margin-left: 20px;
+    }
+    #tweetInput{
+      margin-top: 7px;
+      width: 380px;
+      margin-left: 30px;
+      background-color: white;
+      color: black;
+    }
+    #googleAuthBtn {
+      margin-right: 13px;
+    }
+    #tweetsContainer {
+      overflow: scroll;
+      margin-top: 13px;
+      height: 90vh;
+      margin-left: 15px;
+    }
+    .tweet {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .tweet .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .tweet-content {
+      display: flex;
+      align-items: center; 
+    }
+    .tweet-content strong {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container flex">
+    <div class="left border">
+      <h1>E-GO</h1>
+      <nav>
+        <ul>
+          <li><a href="profile.html" class="link"><img src=""> Profile</a></li>
+          <li><a href="index.html" class="link"><img src=""> Home</a></li>
+          <li><a href="tweet.html" class="link"><img src=""> Tweets</a></li>
+          <li><a href="photo.html" class="link"><img src=""> Photos</a></li>
+          <li><a href="" class="link"><img src=""> Setting</a></li>
+          <li><a href="help&feedback.html" class="link"><img src=""> Help & Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="right border">
+      <header>
+        <input class="tweet" id="tweetInput" placeholder="Write a tweet..." type="text">
+        <button id="uploadtweet" disabled>Tweet</button>
+        <button id="googleAuthBtn">Login</button>
+      </header>
+       <button id="menuButton" class="menu-button">☰</button>
+      <div id="tweetsContainer"></div>
+    </div>
+  </div>
+  <script src="tweet.js" type="module"></script>
+</body>
+
+</html>
+ -->
+
+ <!DOCTYPE html>
+ <html>
+
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
+   <title>Tweet</title>
+   <link href="style.css" rel="stylesheet" type="text/css" />
+   <style>
+     body {
+       font-family: Arial, sans-serif;
+       background-color: #2f2d2d;
+       color: white;
+       margin: 0;
+       padding: 0px;
+     }
+
+     .container {
+       max-width: 1200px;
+       margin: 0 auto;
+       display: flex;
+       height: 100vh;
+     }
+
+     .left {
+       width: 20vw;
+       background-color: #201d1d;
+       color: white;
+       transition: left 0.3s;
+     }
+
+     /* .left h1 {
+       color: #ffdd00;
+       font-size: 50px;
+       margin-left: 40px;
+     } */
+
+     .left nav ul {
+       list-style: none;
+       padding: 0;
+       font-size: 33px;
+     }
+
+     .left nav ul li {
+       margin: 12px;
+     }
+
+     .left nav ul li a.link {
+       color: white;
+       text-decoration: none;
+       display: flex;
+       align-items: center;
+     }
+
+     .left nav ul li a.link:hover {
+       background-color: #979191;
+     }
+
+     .right {
+       flex: 1;
+       background-color: #201d1d;
+       color: white;
+       overflow-y: auto;
+     }
+
+     .right header {
+       display: flex;
+       align-items: center;
+       padding: 10px;
+       background-color: #201d1d;
+     }
+
+     .menu-button {
+       background: none;
+       border: none;
+       color: white;
+       font-size: 24px;
+       cursor: pointer;
+     }
+
+     .Search {
+       margin-left: 20px;
+       padding: 10px;
+       border-radius: 20px;
+       border: none;
+       flex: 1;
+     }
+
+     #googleAuthBtn, #uploadtweet {
+       width: 80px;
+       padding: 10px;
+       border: none;
+       border-radius: 5px;
+       background-color: #1c8de3;
+       color: white;
+       cursor: pointer;
+     }
+
+     #uploadtweet {
+       margin-left: 20px;
+       border-radius: 20px;
+     }
+
+     #tweetInput {
+       margin-top: 7px;
+       width: 380px;
+       height: 30px;
+       border-radius: 20px;
+       border-color:  #201d1d;;
+       margin-left: 10px;
+       background-color: white;
+       color: black;
+     }
+
+     #googleAuthBtn {
+       border-radius: 20px;
+       margin-left: 20px;
+       margin-right: 13px;
+     }
+
+     #tweetsContainer {
+       overflow: scroll;
+       margin-top: 60px;
+       height: 90vh;
+       margin-left: 5px;
+     }
+
+     .tweet {
+       background-color: #333;
+       color: white;
+       
+       padding: 10px;
+       border-radius: 5px;
+       margin-bottom: 10px;
+     }
+
+     .tweet .profile-pic {
+       width: 50px;
+       height: 50px;
+       border-radius: 50%;
+       margin-right: 10px;
+     }
+
+     .tweet-content {
+       display: flex;
+       align-items: center; 
+     }
+
+     .tweet-content strong {
+       margin-right: 10px;
+     }
+
+     @media (max-width: 768px) {
+       .left {
+         position: fixed;
+         top: 0;
+         left: -100%;
+         width: 70%;
+         height: 100%;
+         transition: left 0.3s;
+         z-index: 1000;
+       }
+
+       .left.open {
+         left: 0;
+       }
+
+       .right {
+         width: 100%;
+       }
+
+       .menu-button {
+         display: inline-block;
+       }
+
+       .tweetInput {
+         flex: 1;
+       }
+
+       #uploadtweet {
+         margin-left: auto;
+         margin-right: 10px;
+       }
+
+       #tweetsContainer {
+         padding: 10px;
+       }
+     }
+   </style>
+ </head>
+
+ <body>
+   <div class="container">
+     <div class="left border" id="navDrawer">
+        <h1>Blaze-Z</h1>
+       <nav>
+         <ul>
+           <li><a href="profile.html" class="link"><img src="">Account</a></li>
+           <li><a href="index.html" class="link"><img src=""> Home</a></li>
+           <li><a href="tweett.html" class="link"><img src=""> Tweets</a></li>
+           <li><a href="photo.html" class="link"><img src="">Photos</a></li>
+           <li><a href="E-Tournament.html" class="link"><img src="">Games</a></li>
+           <li><a href="following.html" class="link"><img src="">Following</a></li>
+           <li><a href="rank.html" class="link"><img src="">Rank</a></li>
+           <li><a href="help&feedback.html" class="link"><img src="">Feedback</a></li>
+         </ul>
+       </nav>
+     </div>
+     <div class="right border">
+       <header>
+         <button id="menuButton" class="menu-button">☰</button>
+         <input id="tweetInput" placeholder="Write a tweet..." type="text">
+         <button id="uploadtweet" disabled>Tweet</button>
+         <button id="googleAuthBtn">Login</button>
+       </header>
+       <div id="tweetsContainer"></div>
+     </div>
+   </div>
+   <script src="tweet.js" type="module"></script>
+  
+ </body>
+
+ </html> 
